@@ -1561,6 +1561,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root@workspace:."
+  languageName: unknown
+  linkType: soft
+
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
   resolution: "run-parallel@npm:1.2.0"
@@ -1866,9 +1872,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uniq-toast-kit@workspace:.":
+"uniq-toast-kit@workspace:packages":
   version: 0.0.0-use.local
-  resolution: "uniq-toast-kit@workspace:."
+  resolution: "uniq-toast-kit@workspace:packages"
   dependencies:
     tsup: "npm:^8.1.0"
     typescript: "npm:^5.5.3"
