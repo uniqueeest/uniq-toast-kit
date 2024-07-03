@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["dom", "ESNext"],
+    "declaration": true,
+    "strict": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}

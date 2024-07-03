@@ -1,0 +1,32 @@
+{
+  "name": "uniq-toast-kit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "author": "dbswo9795@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3"
+  }
+}
