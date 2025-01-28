@@ -1,0 +1,13 @@
+{
+  "files.eol": "\n",
+
+  "prettier.requireConfig": true,
+
+  "eslint.enable": true,
+  "eslint.debug": false,
+  "eslint.workingDirectories": [
+    // Monorepo directories
+    { "pattern": "./app/*/" },
+    { "pattern": "./packages/*/" }
+  ],
+}
