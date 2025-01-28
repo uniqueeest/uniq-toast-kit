@@ -23,6 +23,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      uniq-overlay-kit:
+        specifier: workspace:^
+        version: link:../packages/overlay
       uniq-toast-kit:
         specifier: workspace:^
         version: link:../packages/toast
@@ -69,6 +72,36 @@ importers:
       vite:
         specifier: ^5.3.1
         version: 5.4.14(@types/node@22.12.0)
+
+  packages/overlay:
+    devDependencies:
+      '@types/react':
+        specifier: ^18
+        version: 18.3.18
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.5(@types/react@18.3.18)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.1
+        version: 4.3.4(vite@5.4.14(@types/node@22.12.0))
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      tsup:
+        specifier: ^8.1.0
+        version: 8.3.6(jiti@1.21.7)(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
+      typescript:
+        specifier: ^5.5.3
+        version: 5.7.3
+      vite:
+        specifier: ^5.3.3
+        version: 5.4.14(@types/node@22.12.0)
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@22.12.0)
 
   packages/toast:
     devDependencies:

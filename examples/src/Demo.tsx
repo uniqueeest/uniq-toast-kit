@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useToast, ToastProvider, ToastInitializer } from 'uniq-toast-kit';
+import { OverlayContext, overlay, type OverlayProps } from 'uniq-overlay-kit';
 
 import { saveData } from './apis/dataApi';
 import { Toast } from './components/toast';
@@ -7,14 +8,20 @@ import { Toast } from './components/toast';
 function Demo() {
   return (
     <ToastProvider>
-      <ToastInitializer />
-      <Toast />
-      <DemoComponent />
+      <OverlayContext>
+        <ToastInitializer />
+        <Toast />
+        <section className="flex flex-col gap-10 h-screen">
+          <ToastDemoComponent />
+          <div className="w-full h-3 bg-black" />
+          <OverlayDemoComponent />
+        </section>
+      </OverlayContext>
     </ToastProvider>
   );
 }
 
-function DemoComponent() {
+function ToastDemoComponent() {
   const { showToast } = useToast();
 
   const [data, setData] = useState('');
@@ -62,5 +69,44 @@ function DemoComponent() {
     </article>
   );
 }
+
+function OverlayDemoComponent() {
+  return (
+    <article className="flex flex-col gap-6 p-4">
+      <button
+        className="p-4 bg-blue-200"
+        onClick={async () => {
+          const result = await overlay.open(<BasicOverlay overlayKey="overlay-data" />);
+
+          if (result === '확인') {
+            console.log('확인 되었습니다.');
+          } else {
+            console.log('취소 되었습니다.');
+          }
+        }}
+      >
+        오버레이 열기
+      </button>
+    </article>
+  );
+}
+
+const BasicOverlay = ({ resolve }: OverlayProps) => {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black/10">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 items-center justify-center p-5 w-40 h-40 bg-white">
+        <h1>오버레이</h1>
+        <div className="flex gap-3">
+          <button className="text-blue-500" onClick={() => resolve?.('확인')}>
+            확인
+          </button>
+          <button className="text-red-500" onClick={() => resolve?.('취소')}>
+            취소
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Demo;
