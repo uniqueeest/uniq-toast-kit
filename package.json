@@ -5,6 +5,9 @@
     "packages/**",
     "examples/**"
   ],
+  "scripts": {
+    "build:p": "turbo build --filter './packages/*'"
+  },
   "version": "1.0.0",
   "packageManager": "pnpm@9.0.4",
   "devDependencies": {
