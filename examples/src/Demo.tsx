@@ -87,6 +87,14 @@ function OverlayDemoComponent() {
       >
         오버레이 열기
       </button>
+      <button
+        className="p-4 bg-blue-200"
+        onClick={() => {
+          overlay.open(<BasicOverlay overlayKey="overlay-data2" />);
+        }}
+      >
+        오버레이2 열기
+      </button>
     </article>
   );
 }
