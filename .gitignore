@@ -9,6 +9,9 @@
 **/dist/*
 dist
 
+**/coverage/*
+coverage
+
 # storybook
 **/storybook-static/
 
