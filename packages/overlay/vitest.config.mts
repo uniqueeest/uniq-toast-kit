@@ -10,5 +10,8 @@ export default defineConfig({
     environment: 'jsdom',
     name: packageJson.name,
     dir: './src',
+    coverage: {
+      provider: 'v8',
+    },
   },
 });

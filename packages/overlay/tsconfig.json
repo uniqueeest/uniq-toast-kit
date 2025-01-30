@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ESNext", "DOM"],
+    "types": ["@testing-library/jest-dom"],
     "target": "es2020",
     "module": "commonjs",
     "esModuleInterop": true,
