@@ -1,15 +1,15 @@
 import { cloneElement, isValidElement } from 'react';
 
-import { overlayStore } from './store';
-import { randomId } from '../utils';
-import { OverlayProps, ReactOverlayElement } from './types';
+import { overlayStore } from './context/store';
+import { randomId } from './utils';
+import { OverlayProps, ReactOverlayElement } from './context/types';
 
-function open<T>(element: ReactOverlayElement): Promise<T> {
+function open<T>(element: ReactOverlayElement, options?: { duration?: number }): Promise<T> {
   if (!isValidElement(element)) {
     throw new Error('Invalid React element provided to overlay.open');
   }
 
-  const { overlayKey = randomId(), duration, ...props } = element.props;
+  const { overlayKey = randomId(), ...props } = element.props;
 
   const OverlayComponent = (overlayProps: OverlayProps) => {
     return cloneElement(element, { ...overlayProps, ...props });
@@ -17,7 +17,7 @@ function open<T>(element: ReactOverlayElement): Promise<T> {
 
   return overlayStore.push(overlayKey, OverlayComponent, {
     ...props,
-    duration,
+    duration: options?.duration,
   }) as Promise<T>;
 }
 
